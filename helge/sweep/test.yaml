@@ -1,0 +1,25 @@
+name: "CI2022_test"
+entity: "helgemohn"
+project: "CI2022_Hackathon"
+program: train_siren.py
+method: grid
+metric:
+    name: mean_val_loss
+    goal: minimize
+parameters:
+    num_layers:
+        value: 6
+    num_neurons:
+        value: 733
+    learning_rate:
+        value: 0.0000129
+    batch_size:
+        value: 222
+    w0_initial:
+        value: 6.0
+    w0:
+        value: 4.0
+    group_name:
+        value: 'CI2022_test#1'
+    nonlinear:
+        value: 'siren'
