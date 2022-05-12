@@ -26,11 +26,11 @@ def get_args(model: pl.LightningModule, dataloader: pl.LightningDataModule,
     parser.add_argument(
         '--data_path_test',
         type=str,
-        default='helge_TEST_dataset_sincostime_ver1.nc')
+        default='helge_TEST_dataset_window5_sincostime_ver1.nc')
     parser.add_argument(
         '--data_path_meanstddev',
         type=str, 
-        default='helge_MEAN_STDDEV_dataset_window5_sincostime.nc')
+        default='helge_MEAN_STDDEV_dataset_window5_sincostime_ver1.nc')
     
     parser.add_argument("--features_in", type=str, default='none')
     parser.add_argument("--features_out", type=str, default='none')

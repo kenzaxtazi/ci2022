@@ -1,0 +1,39 @@
+name: "CI2022_test"
+entity: "helgemohn"
+project: "CI2022_Hackathon"
+program: hpo_siren.py
+method: grid
+metric:
+    name: mean_val_loss
+    goal: minimize
+parameters:
+    seed:
+        value: 1
+    num_layers:
+        values: 
+            - 2
+            - 4
+            - 6
+    num_neurons:
+        values: 
+            - 100
+            - 300
+            - 600
+    learning_rate:
+        value: 0.00001
+    batch_size:
+        value: 100
+    w0_initial:
+        value: 6.0
+    w0:
+        value: 4.0
+    group_name:
+        value: 'CI2022_test#1'
+    nonlinear:
+        value: 'siren'
+    data_path_train:
+        value: 'helge_TRAIN_dataset_window5_sincostime_ver1.nc'
+    data_path_test:
+        value: 'helge_TEST_dataset_window5_sincostime_ver1.nc'
+    data_path_meanstddev:
+        value: 'helge_MEAN_STDDEV_dataset_window5_sincostime_ver1.nc'
