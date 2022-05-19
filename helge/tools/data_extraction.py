@@ -20,7 +20,7 @@ def data_extraction(start_date, end_date, lead_time, dataset, num_input_time_ste
     num_input_time_steps (int): The number of time steps to use for each predictor samples
     '''    
     file_name = {'CESM': 'CESM_EA_SPI.nc', 'ECMWF': 'ECMWF_EA_SPI.nc'}[dataset]
-    ds = xr.open_dataset(file_name)
+    ds = xr.open_dataset('./data/'+file_name)
     spi = ds['spi'].sel(time=slice(start_date,end_date))
     num_samples=spi.shape[0] 
     #Stack and remove nans

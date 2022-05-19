@@ -36,8 +36,8 @@ def data_creation(data_set, window, ver, all_start_date, all_end_date, lead_time
     data_set_train = data_set[msk,:]
     data_set_test = data_set[~msk,:]
 
-    fn = "helge_TRAIN_dataset_window{}_sincostime_ver{}.nc".format(window,ver)
+    fn = "./data/helge_TRAIN_dataset_window{}_sincostime_ver{}.nc".format(window,ver)
     store_data(data_set_train, fn)
 
-    fn = "helge_TEST_dataset_window{}_sincostime_ver{}.nc".format(window,ver)
+    fn = "./data/helge_TEST_dataset_window{}_sincostime_ver{}.nc".format(window,ver)
     store_data(data_set_test, fn)

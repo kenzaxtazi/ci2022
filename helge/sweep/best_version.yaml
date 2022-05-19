@@ -1,0 +1,31 @@
+name: "CI2022_best_version"
+entity: "helgemohn"
+project: "CI2022_Hackathon"
+program: train_siren.py
+method: grid
+metric:
+    name: mean_val_loss
+    goal: minimize
+parameters:
+    seed:
+        value: 1
+    gpus:
+        value: 7
+    window:
+        value: -1
+    num_layers:
+        value: 6
+    num_neurons:
+        value: 600
+    learning_rate:
+        value: 0.00001
+    batch_size:
+        value: 128
+    w0_initial:
+        value: 6
+    w0:
+        value: 4
+    group_name:
+        value: 'CI2022_best_version'
+    nonlinear:
+        value: 'siren'

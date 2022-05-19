@@ -15,6 +15,8 @@ def get_args(model: pl.LightningModule, dataloader: pl.LightningDataModule,
     parser.add_argument('--optimizer', type=str, default='Adam')
     parser.add_argument('--nonlinear', type=str, default='siren')
     parser.add_argument('--seed', type=int, default=1)
+    parser.add_argument('--window', type=int, default=5)
+    parser.add_argument('--version', type=int, default=1)
 
     parser.add_argument('--w0_initial', type=float, default=15.)
     parser.add_argument('--w0', type=float, default=4.)
@@ -22,15 +24,15 @@ def get_args(model: pl.LightningModule, dataloader: pl.LightningDataModule,
     parser.add_argument(
         '--data_path_train',
         type=str,
-        default='helge_TRAIN_dataset_window5_sincostime_ver1.nc')
+        default='./data/helge_TRAIN_dataset_window{}_sincostime_ver{}.nc')
     parser.add_argument(
         '--data_path_test',
         type=str,
-        default='helge_TEST_dataset_window5_sincostime_ver1.nc')
+        default='./data/helge_TEST_dataset_window{}_sincostime_ver{}.nc')
     parser.add_argument(
         '--data_path_meanstddev',
         type=str, 
-        default='helge_MEAN_STDDEV_dataset_window5_sincostime_ver1.nc')
+        default='./data/helge_MEAN_STDDEV_dataset_window{}_sincostime_ver{}.nc')
     
     parser.add_argument("--features_in", type=str, default='none')
     parser.add_argument("--features_out", type=str, default='none')

@@ -214,10 +214,10 @@ class DeepNeuralNet(pl.LightningModule):
     @staticmethod
     def add_model_specific_args(parent_parser):
         parser = ArgumentParser(parents=[parent_parser], add_help=False)
-        parser.add_argument('--dim_input', type=int, default=52)
+        parser.add_argument('--dim_input', type=int, default=784)
         parser.add_argument('--dim_output', type=int, default=1)
         parser.add_argument('--num_layers', type=int, default=6)
-        parser.add_argument('--num_neurons', type=int, default=640)#3L 512
+        parser.add_argument('--num_neurons', type=int, default=600)#3L 512
         parser.add_argument('--num_traindata', type=int, default=-1)
         parser.add_argument('--num_validata', type=int, default=1000000)#500000)
         parser.add_argument('--num_testdata', type=int, default=-1)#1000000)

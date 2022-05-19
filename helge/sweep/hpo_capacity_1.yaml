@@ -1,0 +1,37 @@
+name: "CI2022_hpo_architecture"
+entity: "helgemohn"
+project: "CI2022_Hackathon"
+program: hpo_siren.py
+method: grid
+metric:
+    name: mean_val_loss
+    goal: minimize
+parameters:
+    seed:
+        value: 1
+    gpus:
+        value: 7
+    window:
+        value: 5
+    num_layers:
+        values: 
+            - 2
+            - 4
+            - 6
+    num_neurons:
+        values: 
+            - 100
+            - 300
+            - 600
+    learning_rate:
+        value: 0.00001
+    batch_size:
+        value: 100
+    w0_initial:
+        value: 6.0
+    w0:
+        value: 4.0
+    group_name:
+        value: 'CI2022_hpo_architecture'
+    nonlinear:
+        value: 'siren'

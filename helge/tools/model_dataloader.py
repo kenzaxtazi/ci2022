@@ -134,7 +134,7 @@ class CI2022_DataModule(pl.LightningDataModule):
         """test set uses the test split"""
         loader = DataLoader(
             self.data_test,
-            batch_size=1000000,#len(self.data_test),
+            batch_size=len(self.data_test),
             shuffle=False,
             num_workers=self.num_workers,
             drop_last=False,

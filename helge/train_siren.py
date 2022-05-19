@@ -14,6 +14,7 @@ exp_description = "CI2022_HACKATHON"
 ###############################
 
 
+
 if __name__ == "__main__":
     # ------------
     # args
@@ -21,11 +22,27 @@ if __name__ == "__main__":
     hparams = get_args(DeepNeuralNet, CI2022_DataModule)
     from pytorch_lightning import seed_everything
     seed_everything(hparams.seed)
+    
+    hparams.data_path_train = hparams.data_path_train.format(hparams.window, hparams.version)
+    hparams.data_path_test = hparams.data_path_test.format(hparams.window, hparams.version)
+    hparams.data_path_meanstddev = hparams.data_path_meanstddev.format(hparams.window, hparams.version)
+    print(hparams.data_path_train)
 
+    import wandb
+    with wandb.init() as run:
+        config = wandb.config
+        for key in config.keys():
+            if key == 'gpus':
+                setattr(hparams, key, [config[key]] )
+            else:
+                setattr(hparams, key, config[key] )
+            
     # ------------
     # data
     # ------------
     data = CI2022_DataModule(hparams)
+    hparams.dim_input = data.dim_input
+    hparams.dim_output = data.dim_output
 
     # ------------
     # model

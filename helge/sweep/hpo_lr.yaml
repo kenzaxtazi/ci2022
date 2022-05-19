@@ -1,0 +1,44 @@
+name: "CI2022_hpo_lr"
+entity: "helgemohn"
+project: "CI2022_Hackathon"
+program: hpo_siren.py
+method: bayes
+metric:
+    name: mean_val_loss
+    goal: minimize
+parameters:
+    seed:
+        value: 1
+    gpus:
+        value: 6
+    window:
+        value: 5 
+    learning_rate:
+        distribution: uniform
+        min: 0.000001
+        max: 0.0001
+    batch_size:
+        # integers between 32 and 256
+        # with evenly-distributed logarithms 
+        distribution: q_log_uniform
+        q: 1
+        #math.ln(64)
+        min: 4.15888308336
+        #math.ln(256)
+        max: 5.54517744448
+    num_layers:
+        value: 4
+    num_neurons:
+        value: 300
+    w0_initial:
+        value: 6.0
+    w0:
+        value: 4.0
+    group_name:
+        value: 'CI2022_hpo_lr'
+    nonlinear:
+        value: 'siren'
+early_terminate:
+  type: hyperband
+  min_iter: 3
+  eta: 3

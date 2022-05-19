@@ -11,7 +11,7 @@ from sklearn.linear_model import LinearRegression
 
 def data_meanstd(window,ver)->None:
     
-    fn_train = "helge_TRAIN_dataset_window{}_sincostime_ver{}.nc".format(window,ver)
+    fn_train = "./data/helge_TRAIN_dataset_window{}_sincostime_ver{}.nc".format(window,ver)
 
 
     import xarray as xr
@@ -39,5 +39,5 @@ def data_meanstd(window,ver)->None:
     print(xr_dataset_mean_std)
 
 
-    fn = "helge_MEAN_STDDEV_dataset_window{}_sincostime_ver{}.nc".format(window,ver)
+    fn = "./data/helge_MEAN_STDDEV_dataset_window{}_sincostime_ver{}.nc".format(window,ver)
     xr_dataset_mean_std.to_netcdf(fn)
